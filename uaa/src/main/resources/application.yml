@@ -1,0 +1,18 @@
+# oauth2.0 uaa服务授权
+server:
+  port: 8083
+
+spring:
+  application:
+    name: oauth2.0-uaa
+  #mysql数据库相关配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/sso?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: gwssi
+    driver-class-name: com.mysql.jdbc.Driver   #mysql驱动
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9090/eureka/

@@ -1,0 +1,17 @@
+# Eureka-Service服务端 服务注册
+server:
+  port: 9090
+
+spring:
+  application:
+    name: Eureka-Service
+
+
+eureka:
+  client:
+    #eureka默认情况下,把自己当做客户端来注册自己,所以我们要禁用它 这里是服务端
+    fetch-registry: false       #表示是否从Eureka Server上获取注册信息，默认为true
+    register-with-eureka: false #表示是否从Eureka Server上获取注册信息，默认为true
+    serviceUrl:
+      # 设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个地址。默认是http://localhost:8761/eureka ；多个地址可使用 , 分隔
+      defaultZone: http://127.0.0.1:${server.port}/eureka/
