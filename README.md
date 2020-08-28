@@ -5,11 +5,11 @@
 
 
 
-![image-20200828135520358](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20200828135520358.png)
+![image-20200828135520358](https://github.com/laughingfuzihao/oauth2.0/blob/master/z_pic/image-20200828135520358.png)
 
 ### 令牌访问端点
 
-![image-20200828135637101](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20200828135637101.png)
+![image-20200828135637101](https://github.com/laughingfuzihao/oauth2.0/blob/master/z_pic/image-20200828135637101.png)
 
 
 
@@ -23,7 +23,7 @@
 
 
 
-![image-20200828135650530](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20200828135650530.png)
+![image-20200828135650530](https://github.com/laughingfuzihao/oauth2.0/blob/master/z_pic/image-20200828135650530.png)
 
 
 
@@ -41,11 +41,11 @@
 
 http://localhost:8083/oauth/authorize?client_id=client1&response_type=code&scope=all&redirect=http://laughing-blog.cn/
 
-![image-20200828140457729](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20200828140457729.png)
+![image-20200828140457729](https://github.com/laughingfuzihao/oauth2.0/blob/master/z_pic/image-20200828140457729.png)
 
 Approval后，拿到授权码
 
-![image-20200828140542457](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20200828140542457.png)
+![image-20200828140542457](https://github.com/laughingfuzihao/oauth2.0/blob/master/z_pic/image-20200828140542457.png)
 
 
 
@@ -55,7 +55,7 @@ Approval后，拿到授权码
 
 http://localhost:8083/oauth/token?client_id=client1&client_secret=123456&grant_type=authorization_code&code=vy9xpC&redirect_uri=http://laughing-blog.cn/
 
-![image-20200828142256557](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20200828142256557.png)
+![image-20200828142256557](https://github.com/laughingfuzihao/oauth2.0/blob/master/z_pic/image-20200828142256557.png)
 
 
 
@@ -65,7 +65,7 @@ http://localhost:8083/oauth/token?client_id=client1&client_secret=123456&grant_t
 
 
 
-![image-20200828151209059](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20200828151209059.png)
+![image-20200828151209059](https://github.com/laughingfuzihao/oauth2.0/blob/master/z_pic/image-20200828151209059.png)
 
 ### 简化模式 response_type=token
 
@@ -75,11 +75,11 @@ http://localhost:8083/oauth/token?client_id=client1&client_secret=123456&grant_t
 
 http://localhost:8083/oauth/authorize?client_id=client1&response_type=token&scope=all&redirect=http://laughing-blog.cn/
 
-![image-20200828143246563](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20200828143246563.png)
+![image-20200828143246563](https://github.com/laughingfuzihao/oauth2.0/blob/master/z_pic/image-20200828143246563.png)
 
 2、返回access_token
 
-![image-20200828143359177](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20200828143359177.png)
+![image-20200828143359177](https://github.com/laughingfuzihao/oauth2.0/blob/master/z_pic/image-20200828143359177.png)
 
 
 
@@ -93,7 +93,7 @@ http://laughing-blog.cn/#access_token=bf80805d-383c-4974-a1e1-23aac95f9c93&token
 
 http://localhost:8083/oauth/token?client_id=client1&client_secret=123456&grant_type=authorization_code&code=vy9xpC&redirect_uri=http://laughing-blog.cn/
 
-![image-20200828143814464](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20200828143814464.png)
+![image-20200828143814464](https://github.com/laughingfuzihao/oauth2.0/blob/master/z_pic/image-20200828143814464.png)
 
 
 
@@ -101,7 +101,7 @@ http://localhost:8083/oauth/token?client_id=client1&client_secret=123456&grant_t
 
 服务端完全信任客户端
 
-![image-20200828144027406](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20200828144027406.png)
+![image-20200828144027406](https://github.com/laughingfuzihao/oauth2.0/blob/master/z_pic/image-20200828144027406.png)
 
 
 
@@ -111,7 +111,7 @@ http://localhost:8083/oauth/token?client_id=client1&client_secret=123456&grant_t
 
 ### 用token校验
 
-![image-20200828153320059](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20200828153320059.png)
+![image-20200828153320059](https://github.com/laughingfuzihao/oauth2.0/blob/master/z_pic/image-20200828153320059.png)
 
 
 
