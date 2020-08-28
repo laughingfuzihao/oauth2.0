@@ -3,6 +3,7 @@ package com.laughing.uaa.config;
 import com.laughing.uaa.service.MyPasswordEncoderService;
 import org.apache.tomcat.util.http.parser.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.ParameterResolutionDelegate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -18,7 +19,11 @@ import org.springframework.security.oauth2.provider.code.AuthorizationCodeServic
 import org.springframework.security.oauth2.provider.code.InMemoryAuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
+import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+
+import java.util.Arrays;
 
 /**
  * @author Fu zihao
@@ -45,6 +50,9 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
     // 认证管理器
     @Autowired
     private AuthenticationManager authenticationManager;
+    // JWT令牌算法
+    @Autowired
+    private JwtAccessTokenConverter accessTokenConverter;
 
 
     // 授权码服务
@@ -89,6 +97,11 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
         tokenServices.setSupportRefreshToken(true);
         // 令牌存储配置
         tokenServices.setTokenStore(tokenStore);
+        // JWT令牌增强
+        TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
+        tokenEnhancerChain.setTokenEnhancers(Arrays.asList(accessTokenConverter));
+        tokenServices.setTokenEnhancer(tokenEnhancerChain);
+
         // 令牌有效时间2小时
         tokenServices.setAccessTokenValiditySeconds(7200);
         // 令牌刷新时间3天

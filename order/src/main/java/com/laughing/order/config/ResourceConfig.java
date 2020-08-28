@@ -1,5 +1,6 @@
 package com.laughing.order.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,6 +10,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
 import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
+import org.springframework.security.oauth2.provider.token.TokenStore;
 
 
 /**
@@ -22,7 +24,11 @@ import org.springframework.security.oauth2.provider.token.ResourceServerTokenSer
 public class ResourceConfig extends ResourceServerConfigurerAdapter {
 
     public static final String RESOURCE_ID = "res1";
+    // 对称秘钥
+    public static final String SIGNING_KEY = "uaa-d8c33b0bd908";
 
+    @Autowired
+    private TokenStore tokenStore;
 
     /**
      * 资源配置
@@ -30,14 +36,14 @@ public class ResourceConfig extends ResourceServerConfigurerAdapter {
      * @param resources
      * @throws Exception
      */
-    @Override
+/*    @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
         resources.resourceId(RESOURCE_ID)
                 //验证令牌的服务
                 .tokenServices(tokenServices())
                 .stateless(true);
 
-    }
+    }*/
 
     /**
      * WEB安全配置
@@ -61,7 +67,7 @@ public class ResourceConfig extends ResourceServerConfigurerAdapter {
      *
      * @return
      */
-    @Bean
+/*    @Bean
     public ResourceServerTokenServices tokenServices() {
         RemoteTokenServices tokenServices = new RemoteTokenServices();
         tokenServices.setCheckTokenEndpointUrl("http://localhost:8083/oauth/check_token");
@@ -69,7 +75,20 @@ public class ResourceConfig extends ResourceServerConfigurerAdapter {
         tokenServices.setClientSecret("123456");
         return tokenServices;
 
-    }
+    }*/
 
+    /**
+     * 资源配置JWT模式
+     * @param resources
+     * @throws Exception
+     */
+    @Override
+    public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
+        resources.resourceId(RESOURCE_ID)
+                //验证令牌的服务
+                .tokenStore(tokenStore)
+                .stateless(true);
+
+    }
 
 }
