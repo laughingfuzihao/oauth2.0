@@ -11,6 +11,8 @@
         <module>uaa</module>
         <module>eureka-server</module>
         <module>order</module>
+        <module>zuul</module>
+        <module>order-service</module>
     </modules>
 
     <!--pom父工程-->

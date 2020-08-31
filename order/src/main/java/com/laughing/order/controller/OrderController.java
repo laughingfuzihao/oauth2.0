@@ -1,6 +1,7 @@
 package com.laughing.order.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,8 +16,10 @@ public class OrderController {
 
     @GetMapping("/order")
     // 拥有admin
-  /*  @PreAuthorize("hasAnyAuthority('admin')")*/
-    public String order(){
+    /*  @PreAuthorize("hasAnyAuthority('admin')")*/
+    public String order() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println("principal = " + principal);
         return "获取order资源";
     }
 

@@ -54,6 +54,7 @@ public class ResourceConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                //.antMatchers("/**").access("#oauth2.hasAnyScope('all')")
                 .antMatchers("/**").access("#oauth2.hasAnyScope('all')")
                 .and().csrf().disable()
                 // 不用session
